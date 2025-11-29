@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>חלומות מתוקים – הספר הדיגיטלי</title>
+
+    <!-- פונט Heebo -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* בסיס כללי */
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Heebo", sans-serif;
+        background: #fff7fb;
+        color: #333;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .page-wrapper {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 24px 16px 48px;
+      }
+
+      section {
+        margin-bottom: 56px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0 0 16px;
+        font-weight: 800;
+      }
+
+      p {
+        margin: 0 0 12px;
+        line-height: 1.6;
+        font-size: 17px;
+      }
+
+      /* HERO */
+      .hero {
+        text-align: center;
+        padding: 32px 16px 40px;
+        background: linear-gradient(180deg, #ffe9f5 0%, #ffffff 80%);
+        border-radius: 32px;
+        box-shadow: 0 18px 40px rgba(255, 133, 183, 0.25);
+      }
+
+      .hero-label {
+        color: #c4598d;
+        font-size: 15px;
+        margin-bottom: 10px;
+      }
+
+      .hero-title {
+        font-size: 36px;
+        line-height: 1.25;
+        margin-bottom: 16px;
+      }
+
+      .hero-sub {
+        max-width: 520px;
+        margin: 0 auto 22px;
+        color: #555;
+      }
+
+      .price-row {
+        margin-bottom: 18px;
+      }
+
+      .price-main {
+        font-size: 32px;
+        color: #ff3f8f;
+        font-weight: 800;
+      }
+
+      .price-old {
+        font-size: 15px;
+        color: #999;
+        text-decoration: line-through;
+      }
+
+      .cta-btn {
+        display: inline-block;
+        padding: 14px 34px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #ff4f9a, #ff8ac3);
+        color: #fff;
+        font-size: 18px;
+        font-weight: 700;
+        box-shadow: 0 10px 28px rgba(255, 79, 154, 0.5);
+        transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+      }
+
+      .cta-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 36px rgba(255, 79, 154, 0.65);
+        opacity: 0.96;
+      }
+
+      .cta-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 8px 20px rgba(255, 79, 154, 0.5);
+      }
+
+      /* בלוק עם מסגרת */
+      .card {
+        background: #ffffff;
+        border-radius: 24px;
+        padding: 24px 20px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      }
+
+      .section-title {
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 18px;
+      }
+
+      /* וי ירוק */
+      .v-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+
+      .v-icon {
+        color: #17c964;
+        font-weight: 800;
+        font-size: 20px;
+        line-height: 1.3;
+        flex-shrink: 0;
+      }
+
+      /* תמונות */
+      .img-block {
+        margin: 32px 0;
+        text-align: center;
+      }
+
+      .img-block img {
+        width: 100%;
+        max-width: 520px;
+        border-radius: 24px;
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      /* שני טורים לטקסט */
+      .two-cols {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .pill {
+        display: inline-block;
+        background: #ffe5f1;
+        color: #c24580;
+        border-radius: 999px;
+        padding: 6px 14px;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      /* FAQ */
+      .faq {
+        background: #fff;
+        border-radius: 24px;
+        padding: 22px 20px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      }
+
+      .faq-item {
+        border-bottom: 1px solid #f0f0f0;
+        padding: 10px 0;
+      }
+
+      .faq-item:last-child {
+        border-bottom: none;
+      }
+
+      .faq-q {
+        font-weight: 600;
+        font-size: 17px;
+        cursor: pointer;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .faq-q::before {
+        content: "+";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: #ff4f9a;
+        font-weight: 800;
+      }
+
+      .faq-a {
+        display: none;
+        font-size: 16px;
+        color: #555;
+        margin-top: 6px;
+      }
+
+      .faq-item.open .faq-a {
+        display: block;
+      }
+
+      .faq-item.open .faq-q::before {
+        content: "–";
+      }
+
+      /* CTA תחתון */
+      .bottom-cta {
+        text-align: center;
+      }
+
+      .bottom-cta p {
+        margin-bottom: 16px;
+      }
+
+      /* פוטר */
+      footer {
+        text-align: center;
+        font-size: 13px;
+        color: #888;
+        margin-top: 24px;
+      }
+
+      /* רספונסיבי */
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 30px;
+        }
+        .two-cols {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .page-wrapper {
+          padding: 16px 12px 32px;
+        }
+        .hero {
+          padding: 24px 14px 30px;
+        }
+        .hero-title {
+          font-size: 26px;
+        }
+        .cta-btn {
+          width: 100%;
+          font-size: 17px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page-wrapper">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-label">מוצר דיגיטלי להורדה מיידית</div>
+        <h1 class="hero-title">הסודות הקטנים שעושים את ההבדל הגדול באפייה</h1>
+        <p class="hero-sub">
+          עשרות מתכונים מדויקים, פשוטים ואלגנטיים, עם כל הסודות הקטנים שיוציאו מהתנור שלך עוגות וקינוחים שנראים כמו קונדיטוריה גם אם לא אפית מעולם.
+        </p>
+
+        <div class="price-row">
+          <div class="price-main">29 ₪ בלבד</div>
+          <div class="price-old">במקום 89 ₪</div>
+        </div>
+
+        <a
+          href="https://payments.payplus.co.il/l/494895de-7c9f-4995-aa43-74d5a69a0383"
+          class="cta-btn"
+          >אני רוצה את הספר עכשיו</a
+        >
+      </section>
+
+      <!-- תמונה 1 -->
+      <section class="img-block">
+        <img
+          src="https://static.wixstatic.com/media/19002b_b82f4cb756ac4ca9ba635f29507e0872~mv2.jpg"
+          alt="עוגיות אבקה"
+        />
+      </section>
+
+      <!-- מה יש בספר -->
+      <section>
+        <div class="card">
+          <h2 class="section-title">מה מחכה לך בתוך הספר?</h2>
+
+          <div class="v-row">
+            <div class="v-icon">✔</div>
+            <p>עשרות מתכונים שבכל פעם מקבלים מחמאות ולא נשאר פירור.</p>
+          </div>
+
+          <div class="v-row">
+            <div class="v-icon">✔</div>
+            <p>הוראות קצרות וברורות בלי חפירות ובלי דרמות.</p>
+          </div>
+
+          <div class="v-row">
+            <div class="v-icon">✔</div>
+            <p>טבלת המרות מקצועית לפי כוס 240 מיליליטר וגם כוס חד פעמית 180.</p>
+          </div>
+
+          <div class="v-row">
+            <div class="v-icon">✔</div>
+            <p>מתאים למי שמתחילה מאפס וגם למי שכבר אופה שנים ורוצה לשדרג.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- בלוק משולב טקסט + תמונה -->
+      <section>
+        <div class="two-cols">
+          <div>
+            <span class="pill">פיצרים חכמים שאין באף ספר אחר</span>
+            <h2 style="font-size: 26px; margin-bottom: 14px">
+              הספר שלא רק נותן מתכונים אלא חושב יחד איתך במטבח
+            </h2>
+
+            <div class="v-row">
+              <div class="v-icon">✔</div>
+              <p>
+                שליחת מצרכים לוואטסאפ בלחיצה אחת – אפשר להעביר לבן או בת הזוג בדרך לסופר
+                בלי להקליד הכל מחדש.
+              </p>
+            </div>
+
+            <div class="v-row">
+              <div class="v-icon">✔</div>
+              <p>
+                ממיר תבניות חכם – מתכון לתבנית 26 ויש לך רק 20? את מקבלת כמויות מדויקות ולא
+                צריכה לנחש.
+              </p>
+            </div>
+
+            <div class="v-row">
+              <div class="v-icon">✔</div>
+              <p>
+                הספר הדיגיטלי נשמר לנצח בנייד ובמחשב שלך – תמיד זמין לבישולים של שישי בבוקר
+                ולאירוחים.
+              </p>
+            </div>
+          </div>
+
+          <div class="img-block" style="margin: 0">
+            <img
+              src="https://static.wixstatic.com/media/19002b_6c8ac395c5d6410184261c43dde96ffa~mv2.jpg"
+              alt="עוגת שוקולד צ׳יפס"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- למה אפשר לסמוך -->
+      <section>
+        <div class="card">
+          <h2 class="section-title">למה אפשר לסמוך על הספר?</h2>
+
+          <div class="v-row">
+            <div class="v-icon">✔</div>
+            <p>מעל 10,000 עוקבים שנהנים מהמתכונים ברשת.</p>
+          </div>
+
+          <div class="v-row">
+            <div class="v-icon">✔</div>
+            <p>מתכונים שהגיעו למקומות ראשונים בגוגל במילות חיפוש תחרותיות.</p>
+          </div>
+
+          <div class="v-row">
+            <div class="v-icon">✔</div>
+            <p>עשרות תגובות אמיתיות מקוראות שניסו בבית וחזרו לעוד.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- גלריית תמונות -->
+      <section class="img-block">
+        <img
+          src="https://static.wixstatic.com/media/19002b_2f09450ef9af4d4c9562d88501efb22b~mv2.jpg"
+          alt="עוגת שכבות"
+          style="margin-bottom: 20px"
+        />
+        <img
+          src="https://static.wixstatic.com/media/19002b_b714b31be17f41dabcb94f43fb4e983d~mv2.jpg"
+          alt="עוגיות שקדים"
+        />
+      </section>
+
+      <!-- CTA תחתון -->
+      <section class="bottom-cta">
+        <div class="card">
+          <h2 class="section-title" style="margin-bottom: 10px">
+            פחות ממחיר של קפה ומאפה ונשאר איתך לנצח
+          </h2>
+          <p>
+            במקום להתבאס מעוגות שנופלות או יוצאות בינוניות, את מקבלת ספר דיגיטלי
+            מסודר, מדויק ויפהפה שאפשר לפתוח בכל רגע ולדעת בדיוק מה לעשות.
+          </p>
+          <p style="font-weight: 600; margin-top: 8px; margin-bottom: 18px">
+            הספר הדיגיטלי כולל את כל הסודות הקטנים שגם קונדיטורים לא תמיד מספרים.
+          </p>
+
+          <div class="price-row">
+            <div class="price-main">29 ₪ בלבד</div>
+            <div class="price-old">במקום 89 ₪</div>
+          </div>
+
+          <a
+            href="https://payments.payplus.co.il/l/494895de-7c9f-4995-aa43-74d5a69a0383"
+            class="cta-btn"
+            >אני מצטרפת לספר עכשיו</a
+          >
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section>
+        <div class="faq">
+          <h2 class="section-title" style="margin-bottom: 10px">שאלות נפוצות</h2>
+
+          <div class="faq-item">
+            <div class="faq-q">איך מקבלים את הספר?</div>
+            <div class="faq-a">
+              מיד אחרי התשלום תקבלי דף הורדה וגם מייל עם קישור לספר הדיגיטלי כדי שתוכלי
+              לשמור אותו לנצח.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">זה מתאים גם למי שלא אפתה אף פעם?</div>
+            <div class="faq-a">
+              כן. ההוראות קצרות וברורות, וכל מתכון נבדק כמה פעמים כדי שגם מי שמתחילה תצליח
+              כבר מהפעם הראשונה.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">הספר מודפס או דיגיטלי?</div>
+            <div class="faq-a">
+              הספר הוא ספר דיגיטלי מעוצב, בפורמט שנוח לקריאה בנייד, בטאבלט ובמחשב. אפשר גם
+              להדפיס בבית אם תרצי.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>חלומות מתוקים – הספר הדיגיטלי • כל הזכויות שמורות</footer>
+    </div>
+
+    <script>
+      // פתיחה וסגירה של שאלות נפוצות
+      document.querySelectorAll(".faq-item").forEach(function (item) {
+        item.addEventListener("click", function () {
+          item.classList.toggle("open");
+        });
+      });
+    </script>
+  </body>
+</html>
