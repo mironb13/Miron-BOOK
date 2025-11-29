@@ -47,17 +47,29 @@
 
       p {
         margin: 0 0 12px;
-        line-height: 1.6;
+        line-height: 1.7;
         font-size: 17px;
+      }
+
+      /* אנימציית כניסה עדינה */
+      .animate {
+        opacity: 0;
+        transform: translateY(26px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .animate.show {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       /* HERO */
       .hero {
         text-align: center;
         padding: 32px 16px 40px;
-        background: linear-gradient(180deg, #ffe9f5 0%, #ffffff 80%);
+        background: radial-gradient(circle at top, #ffeaf5 0, #ffffff 55%, #ffeaf5 100%);
         border-radius: 32px;
-        box-shadow: 0 18px 40px rgba(255, 133, 183, 0.25);
+        box-shadow: 0 20px 45px rgba(255, 133, 183, 0.3);
       }
 
       .hero-label {
@@ -67,19 +79,19 @@
       }
 
       .hero-title {
-        font-size: 36px;
+        font-size: 34px;
         line-height: 1.25;
         margin-bottom: 16px;
       }
 
       .hero-sub {
-        max-width: 520px;
-        margin: 0 auto 22px;
+        max-width: 550px;
+        margin: 0 auto 24px;
         color: #555;
       }
 
       .price-row {
-        margin-bottom: 18px;
+        margin-bottom: 20px;
       }
 
       .price-main {
@@ -94,27 +106,46 @@
         text-decoration: line-through;
       }
 
+      /* כפתור 3D משודרג */
       .cta-btn {
+        position: relative;
         display: inline-block;
-        padding: 14px 34px;
+        padding: 14px 40px;
         border-radius: 999px;
         background: linear-gradient(135deg, #ff4f9a, #ff8ac3);
         color: #fff;
         font-size: 19px;
         font-weight: 700;
-        box-shadow: 0 10px 28px rgba(255, 79, 154, 0.5);
+        letter-spacing: 0.3px;
+        box-shadow: 0 14px 0 #e03882, 0 22px 40px rgba(255, 79, 154, 0.6);
+        transform: translateY(0);
         transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
       }
 
+      .cta-btn::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: radial-gradient(circle at top, rgba(255, 255, 255, 0.25), transparent 60%);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+      }
+
       .cta-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 16px 36px rgba(255, 79, 154, 0.65);
-        opacity: 0.96;
+        transform: translateY(-4px);
+        box-shadow: 0 18px 0 #e03882, 0 30px 55px rgba(255, 79, 154, 0.75);
+        opacity: 0.98;
+      }
+
+      .cta-btn:hover::after {
+        opacity: 1;
       }
 
       .cta-btn:active {
         transform: translateY(0);
-        box-shadow: 0 8px 20px rgba(255, 79, 154, 0.5);
+        box-shadow: 0 10px 0 #e03882, 0 18px 30px rgba(255, 79, 154, 0.6);
       }
 
       /* בלוק עם מסגרת */
@@ -122,11 +153,11 @@
         background: #ffffff;
         border-radius: 24px;
         padding: 24px 20px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
       }
 
       .section-title {
-        font-size: 28px;
+        font-size: 26px;
         text-align: center;
         margin-bottom: 18px;
       }
@@ -157,7 +188,7 @@
         width: 100%;
         max-width: 520px;
         border-radius: 24px;
-        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.09);
       }
 
       /* שני טורים לטקסט */
@@ -183,12 +214,13 @@
         background: #fff;
         border-radius: 24px;
         padding: 22px 20px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
       }
 
       .faq-item {
         border-bottom: 1px solid #f0f0f0;
         padding: 10px 0;
+        cursor: pointer;
       }
 
       .faq-item:last-child {
@@ -198,9 +230,8 @@
       .faq-q {
         font-weight: 600;
         font-size: 17px;
-        cursor: pointer;
         position: relative;
-        padding-left: 20px;
+        padding-left: 22px;
       }
 
       .faq-q::before {
@@ -275,7 +306,7 @@
   <body>
     <div class="page-wrapper">
       <!-- HERO -->
-      <section class="hero">
+      <section class="hero animate">
         <div class="hero-label">מוצר דיגיטלי להורדה מיידית</div>
         <h1 class="hero-title">הסודות הקטנים שעושים את ההבדל הגדול באפייה</h1>
         <p class="hero-sub">
@@ -295,7 +326,7 @@
       </section>
 
       <!-- תמונה 1 -->
-      <section class="img-block">
+      <section class="img-block animate">
         <img
           src="https://static.wixstatic.com/media/19002b_b82f4cb756ac4ca9ba635f29507e0872~mv2.jpg"
           alt="עוגיות אבקה"
@@ -303,7 +334,7 @@
       </section>
 
       <!-- מה יש בספר -->
-      <section>
+      <section class="animate">
         <div class="card">
           <h2 class="section-title">מה מחכה לך בתוך הספר?</h2>
 
@@ -330,7 +361,7 @@
       </section>
 
       <!-- בלוק משולב טקסט + תמונה -->
-      <section>
+      <section class="animate">
         <div class="two-cols">
           <div>
             <span class="pill">פיצרים חכמים שאין באף ספר אחר</span>
@@ -373,11 +404,18 @@
       </section>
 
       <!-- למה אפשר לסמוך -->
-      <section>
+      <section class="animate">
         <div class="card">
           <h2 class="section-title">למה אפשר לסמוך על הספר?</h2>
 
-          <p style="font-size: 17px; line-height: 1.7; margin-bottom: 18px; text-align: center;">
+          <p
+            style="
+              font-size: 17px;
+              line-height: 1.7;
+              margin-bottom: 18px;
+              text-align: center;
+            "
+          >
             <strong>מי עומד מאחורי הספר?</strong><br />
             אני מירון, אופה ביתי עם ניסיון של יותר מ־25 שנה, יוצר מתכונים שעברו אלפי מטבחים, עם קהילה גדולה שמכינה את המתכונים שלי בכל שבוע. אחרי מאות ניסיונות, טעימות ושיפורים — בחרתי את המתכונים המושלמים ביותר וארזתי אותם בספר דיגיטלי אחד.
           </p>
@@ -400,7 +438,7 @@
       </section>
 
       <!-- גלריית תמונות -->
-      <section class="img-block">
+      <section class="img-block animate">
         <img
           src="https://static.wixstatic.com/media/19002b_2f09450ef9af4d4c9562d88501efb22b~mv2.jpg"
           alt="עוגת שכבות"
@@ -413,7 +451,7 @@
       </section>
 
       <!-- CTA תחתון -->
-      <section class="bottom-cta">
+      <section class="bottom-cta animate">
         <div class="card">
           <h2 class="section-title" style="margin-bottom: 10px">
             פחות ממחיר של קפה ומאפה ונשאר איתך לנצח
@@ -440,7 +478,7 @@
       </section>
 
       <!-- FAQ -->
-      <section>
+      <section class="animate">
         <div class="faq">
           <h2 class="section-title" style="margin-bottom: 10px">שאלות נפוצות</h2>
 
@@ -480,6 +518,21 @@
           item.classList.toggle("open");
         });
       });
+
+      // אנימציית כניסה כשגוללים
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.18 }
+      );
+
+      document.querySelectorAll(".animate").forEach((el) => observer.observe(el));
     </script>
   </body>
 </html>
