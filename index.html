@@ -226,6 +226,37 @@
         .page-wrapper { padding: 16px 12px 32px; }
         .cta-btn { width: 100%; font-size: 17px; }
       }
+
+      /* FIX: Move carousel arrows out of the text area */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ffe5f1;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  z-index: 5;
+}
+
+/* Right arrow */
+#nextBtn {
+  right: -20px;
+}
+
+/* Left arrow */
+#prevBtn {
+  left: -20px;
+}
+
+/* Make sure the slide content never gets covered */
+#carousel {
+  padding: 10px 20px;
+}
+
     </style>
   </head>
 
@@ -380,8 +411,9 @@
             </div>
 
             <!-- Arrows -->
-            <button id="prevBtn" class="carousel-btn">‹</button>
-            <button id="nextBtn" class="carousel-btn">›</button>
+            <button id="prevBtn" class="carousel-arrow">‹</button>
+<button id="nextBtn" class="carousel-arrow">›</button>
+
 
           </div>
         </div>
@@ -557,3 +589,4 @@
 
   </body>
 </html>
+
