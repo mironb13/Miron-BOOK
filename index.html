@@ -104,8 +104,8 @@
         text-decoration: line-through;
       }
 
-     /* RETURNED – Button from previous version */
-     .cta-btn {
+      /* CTA Button */
+      .cta-btn {
         display: inline-block;
         padding: 14px 34px;
         border-radius: 999px;
@@ -121,11 +121,6 @@
         transform: translateY(-3px);
         box-shadow: 0 16px 36px rgba(255, 79, 154, 0.65);
         opacity: 0.96;
-      }
-
-      .cta-btn:active {
-        transform: translateY(0);
-        box-shadow: 0 8px 20px rgba(255, 79, 154, 0.5);
       }
 
       /* Cards */
@@ -148,6 +143,7 @@
         gap: 8px;
         margin-bottom: 10px;
       }
+
       .v-icon {
         color: #17c964;
         font-weight: 800;
@@ -168,11 +164,18 @@
         box-shadow: 0 14px 30px rgba(0, 0, 0, 0.09);
       }
 
-      .two-cols {
-        display: grid;
-        grid-template-columns: 1.4fr 1fr;
-        gap: 32px;
-        align-items: center;
+      /* Review auto box */
+      .review-box {
+        text-align: center;
+        background: #fff;
+        padding: 28px 22px;
+        border-radius: 24px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        font-size: 17px;
+        line-height: 1.8;
+        min-height: 120px;
+        opacity: 1;
+        transition: opacity 0.4s ease;
       }
 
       .pill {
@@ -245,19 +248,6 @@
         .hero-title {
           font-size: 30px;
         }
-        .two-cols {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .page-wrapper {
-          padding: 16px 12px 32px;
-        }
-        .cta-btn {
-          width: 100%;
-          font-size: 17px;
-        }
       }
     </style>
   </head>
@@ -268,19 +258,17 @@
       <section class="hero animate">
         <div class="hero-label">ספר דיגיטלי לפתיחה מיידית</div>
 
-<h1 class="hero-title" style="font-size: 32px;">
-  חלומות מתוקים הספר הדיגיטלי שלך לאפייה מושלמת
-</h1>
+        <h1 class="hero-title" style="font-size: 32px;">
+          חלומות מתוקים — הספר הדיגיטלי שלך לאפייה מושלמת
+        </h1>
 
-<h2 style="font-size: 22px; margin-bottom: 18px; font-weight: 700; color: #444;">
-  הסודות הקטנים שעושים את ההבדל הגדול באפייה
-</h2>
+        <h2 style="font-size: 22px; margin-bottom: 18px; font-weight: 700; color: #444;">
+          הסודות הקטנים שעושים את ההבדל הגדול באפייה
+        </h2>
 
-<p class="hero-sub">
-  עשרות מתכונים מדויקים, פשוטים ואלגנטיים, עם כל הטיפים הקטנים
-  שיוציאו מהתנור שלך קינוחים שנראים כמו קונדיטוריה והכול
-  בספר דיגיטלי אחד שנפתח מיד אחרי הרכישה.
-</p>
+        <p class="hero-sub">
+          עשרות מתכונים מדויקים, פשוטים ואלגנטיים, עם כל הטיפים הקטנים שיוציאו מהתנור שלך קינוחים שנראים כמו קונדיטוריה — והכול מיד אחרי הרכישה.
+        </p>
 
         <div class="price-row">
           <div class="price-main">29 ₪ בלבד</div>
@@ -302,7 +290,6 @@
           alt="עוגיות אבקה"
         />
       </section>
-
       <!-- CONTENT -->
       <section class="animate">
         <div class="card">
@@ -334,37 +321,36 @@
       <section class="animate">
         <div class="two-cols">
           <div>
-  <span class="pill">פיצ'רים חכמים</span>
+            <span class="pill">פיצ'רים חכמים</span>
 
-  <h2 style="font-size: 26px; margin-bottom: 18px">
-    הספר שלא רק נותן מתכונים הוא ממש עוזר לך במטבח
-  </h2>
+            <h2 style="font-size: 26px; margin-bottom: 18px">
+              הספר שלא רק נותן מתכונים — הוא ממש עוזר לך במטבח
+            </h2>
 
-  <div class="v-row">
-    <div class="v-icon">✔</div>
-    <p>
-      <strong>שליחת מצרכים לוואטסאפ בלחיצה אחת</strong><br />
-      לא צריך להעתיק, לא צריך לזכור רשימת המצרכים מגיעה ישירות אליך.
-    </p>
-  </div>
+            <div class="v-row">
+              <div class="v-icon">✔</div>
+              <p>
+                <strong>שליחת מצרכים לוואטסאפ בלחיצה אחת</strong><br />
+                רשימת מצרכים אוטומטית — בלי להעתיק, בלי לשכוח.
+              </p>
+            </div>
 
-  <div class="v-row">
-    <div class="v-icon">✔</div>
-    <p>
-      <strong>ממיר תבניות חכם</strong><br />
-      משנה גודל תבנית ומחשב עבורך את הכמויות בצורה מדויקת.
-    </p>
-  </div>
+            <div class="v-row">
+              <div class="v-icon">✔</div>
+              <p>
+                <strong>ממיר תבניות חכם</strong><br />
+                מחשב לך אוטומטית את כמויות החומרים לכל גודל תבנית.
+              </p>
+            </div>
 
-  <div class="v-row">
-    <div class="v-icon">✔</div>
-    <p>
-      <strong>זמין לנייד, טאבלט ומחשב לנצח</strong><br />
-      גישה קבועה גם מהמטבח וגם בדרך.
-    </p>
-  </div>
-</div>
-
+            <div class="v-row">
+              <div class="v-icon">✔</div>
+              <p>
+                <strong>זמין לנייד, טאבלט ומחשב</strong><br />
+                הספר נשאר שלך לנצח — מכל מכשיר.
+              </p>
+            </div>
+          </div>
 
           <div class="img-block" style="margin: 0">
             <img
@@ -377,47 +363,42 @@
 
       <!-- ABOUT YOU -->
       <section class="animate">
-  <div class="card">
-    <h2 class="section-title">למה אפשר לסמוך על הספר?</h2>
+        <div class="card">
+          <h2 class="section-title">למה אפשר לסמוך על הספר?</h2>
 
-    <p style="text-align: center; font-size: 17px; margin-bottom: 26px">
-      <strong style="font-size: 19px">מי עומד מאחורי הספר?</strong><br />
-      אני מירון אופה ביתי עם ניסיון של יותר מ־25 שנה, יוצר מתכונים שעברו אלפי מטבחים.  
-      אחרי מאות ניסיונות, טעימות ושיפורים בחרתי רק את המתכונים המושלמים ואיחדתי אותם לספר אחד מדויק, נוח ומקצועי.
-    </p>
+          <p style="text-align: center; font-size: 17px; margin-bottom: 26px">
+            <strong style="font-size: 19px">מי עומד מאחורי הספר?</strong><br />
+            אני מירון, אופה ביתי עם ניסיון של יותר מ־25 שנה, יוצר מתכונים שעברו אלפי מטבחים.  
+            אחרי מאות ניסיונות, טעימות ושיפורים — בחרתי רק את המתכונים המושלמים ואיחדתי אותם לספר אחד מדויק, נוח ומקצועי.
+          </p>
 
-    <hr style="border: none; height: 1px; background: #f3d6e4; margin: 22px 0" />
+          <hr style="border: none; height: 1px; background: #f3d6e4; margin: 22px 0" />
 
-    <div class="v-row">
-      <div class="v-icon">✔</div>
-      <p><strong>10,000+ עוקבים קבועים</strong> שמכינים את המתכונים שלי בכל שבוע.</p>
-    </div>
+          <div class="v-row">
+            <div class="v-icon">✔</div>
+            <p><strong>10,000+ עוקבים קבועים</strong> שמכינים את המתכונים שלי בכל שבוע.</p>
+          </div>
 
-    <div class="v-row">
-      <div class="v-icon">✔</div>
-      <p><strong>מתכונים שמדורגים ראשונים בגוגל</strong> בזכות דיוק וטעם מנצח.</p>
-    </div>
+          <div class="v-row">
+            <div class="v-icon">✔</div>
+            <p><strong>מתכונים שמדורגים ראשונים בגוגל</strong> בזכות דיוק וטעם מנצח.</p>
+          </div>
 
-    <div class="v-row">
-      <div class="v-icon">✔</div>
-      <p><strong>עשרות תגובות אמיתיות</strong> של אנשים שניסו וחזרו לעוד.</p>
-    </div>
-  </div>
-</section>
+          <div class="v-row">
+            <div class="v-icon">✔</div>
+            <p><strong>עשרות תגובות אמיתיות</strong> של אנשים שניסו וחזרו לעוד.</p>
+          </div>
+        </div>
+      </section>
 
-      <!-- AUTO REVIEWS -->
-<section class="animate">
-  <div class="card" style="padding: 30px 22px; text-align: center;">
-    <h2 class="section-title">מה אנשים מספרים?</h2>
-
-    <p id="autoReview" style="font-size: 17px; line-height: 1.8; min-height: 120px;">
-      ⭐⭐⭐⭐⭐<br>
-      “הכנתי כבר 4 מתכונים — יצא מדהים! הכי אהבתי את הדיוק בכל פרט.”<br>
-      <strong>– לירון</strong>
-    </p>
-  </div>
-</section>
-
+      <!-- AUTO REVIEW BOX -->
+      <section class="animate">
+        <div class="review-box" id="autoReview">
+          ⭐⭐⭐⭐⭐<br>
+          “הכנתי כבר 4 מתכונים — יצא מדהים! הכי אהבתי את הדיוק בכל פרט.”<br>
+          <strong>– לירון</strong>
+        </div>
+      </section>
 
       <!-- GALLERY -->
       <section class="img-block animate">
@@ -432,21 +413,22 @@
         />
       </section>
 
-      <!-- CTA -->
+      <!-- CTA SECTION -->
       <section class="animate">
         <div class="card" style="text-align: center">
           <h2 class="section-title">פחות ממחיר של קפה ומאפה</h2>
+
           <p style="font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #ff3f8f;">
-  למה את מחכה?
-</p>
+            למה את מחכה?
+          </p>
 
-<p style="font-size: 18px; font-weight: 500; margin-bottom: 12px; color: #444;">
-  ספר דיגיטלי מלא במתכונים מדויקים וטיפים במחיר של קפה אחד.
-</p>
+          <p style="font-size: 18px; font-weight: 500; margin-bottom: 12px; color: #444;">
+            ספר דיגיטלי מלא במתכונים מדויקים וטיפים במחיר של קפה אחד.
+          </p>
 
-<p style="font-size: 18px; font-weight: 600; margin-bottom: 22px; color: #333;">
-  זו ההזדמנות שלך להתחיל לאפות ברמה גבוהה באמת !
-</p>
+          <p style="font-size: 18px; font-weight: 600; margin-bottom: 22px; color: #333;">
+            זו ההזדמנות שלך להתחיל לאפות ברמה גבוהה באמת!
+          </p>
 
           <div class="price-row">
             <div class="price-main">29 ₪ בלבד</div>
@@ -477,22 +459,21 @@
           <div class="faq-item">
             <div class="faq-q">האם זה מתאים למי שלא אפתה אף פעם?</div>
             <div class="faq-a">
-              כן, כל ההוראות קצרות וברורות. הספר מיועד גם למתחילים.
+              כן, כל ההוראות קצרות וברורות. הספר מתאים גם למתחילים.
             </div>
           </div>
 
           <div class="faq-item">
             <div class="faq-q">זה ספר מודפס?</div>
             <div class="faq-a">
-              זה ספר דיגיטלי מעוצב שמתאים לנייד, טאבלט ומחשב. אפשר גם להדפיס.
+              זה ספר דיגיטלי מעוצב — מתאים לנייד, טאבלט ומחשב. אפשר גם להדפיס.
             </div>
           </div>
 
-          <!-- NEW QUESTION -->
           <div class="faq-item">
             <div class="faq-q">איך יוצרים קשר?</div>
             <div class="faq-a">
-              לכל שאלה או התייעצות מוזמנים באהבה:  
+              לכל שאלה או התייעצות —  
               <strong>mironbr@gmail.com</strong>
             </div>
           </div>
@@ -502,6 +483,7 @@
       <footer>חלומות מתוקים – כל הזכויות שמורות</footer>
     </div>
 
+    <!-- SCRIPTS -->
     <script>
       // FAQ open/close
       document.querySelectorAll(".faq-item").forEach((item) => {
@@ -524,35 +506,35 @@
       );
       document.querySelectorAll(".animate").forEach((el) => observer.observe(el));
     </script>
+
+    <!-- Auto Reviews Rotator -->
     <script>
-  // Reviews auto-rotator
-  const reviews = [
-    {
-      text: "⭐⭐⭐⭐⭐<br>“הכנתי כבר 4 מתכונים — יצא מדהים! הכי אהבתי את הדיוק בכל פרט.”<br><strong>– לירון</strong>"
-    },
-    {
-      text: "⭐⭐⭐⭐⭐<br>“ספר מושלם! סוף סוף מתכונים שלא צריך לנחש בהם כלום.”<br><strong>– יעל</strong>"
-    },
-    {
-      text: "⭐⭐⭐⭐⭐<br>“המחיר מצחיק ביחס למה שמקבלים. כבר קניתי גם לחברה!”<br><strong>– הדס</strong>"
-    }
-  ];
+      const reviews = [
+        {
+          text: "⭐⭐⭐⭐⭐<br>“הכנתי כבר 4 מתכונים — יצא מדהים! הכי אהבתי את הדיוק בכל פרט.”<br><strong>– לירון</strong>"
+        },
+        {
+          text: "⭐⭐⭐⭐⭐<br>“ספר מושלם! סוף סוף מתכונים שלא צריך לנחש בהם כלום.”<br><strong>– יעל</strong>"
+        },
+        {
+          text: "⭐⭐⭐⭐⭐<br>“המחיר מצחיק ביחס למה שמקבלים. כבר קניתי גם לחברה!”<br><strong>– הדס</strong>"
+        }
+      ];
 
-  let rIndex = 0;
-  const reviewBox = document.getElementById("autoReview");
+      let rIndex = 0;
+      const reviewBox = document.getElementById("autoReview");
 
-  setInterval(() => {
-    rIndex = (rIndex + 1) % reviews.length;
-    reviewBox.style.opacity = 0;
+      setInterval(() => {
+        rIndex = (rIndex + 1) % reviews.length;
+        reviewBox.style.opacity = 0;
 
-    setTimeout(() => {
-      reviewBox.innerHTML = reviews[rIndex].text;
-      reviewBox.style.opacity = 1;
-    }, 300);
+        setTimeout(() => {
+          reviewBox.innerHTML = reviews[rIndex].text;
+          reviewBox.style.opacity = 1;
+        }, 300);
 
-  }, 3000);
-</script>
+      }, 3000);
+    </script>
+
   </body>
 </html>
-
-
