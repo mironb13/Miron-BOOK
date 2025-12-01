@@ -175,6 +175,30 @@
 </section>
 
 <!-- CTA FINAL -->
+<!-- REVIEWS -->
+<section class="animate">
+  <div class="card" style="text-align: center; padding: 28px 20px;">
+    <h2 class="section-title">מה אנשים מספרים?</h2>
+
+    <div
+      id="autoReview"
+      style="
+        font-size: 18px;
+        line-height: 1.7;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+        max-width: 620px;
+        margin: 0 auto;
+      "
+    >
+      ⭐⭐⭐⭐⭐<br />
+      “הכנתי כבר 4 מתכונים — יצא מדהים! הכי אהבתי את הדיוק בכל פרט.”<br />
+      <strong>שרה.מ</strong>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
 <section class="animate">
   <div class="card" style="text-align: center;">
     <h2 class="section-title">פחות ממחיר של קפה ומאפה</h2>
@@ -256,8 +280,8 @@
 
   // Fade-in animation
   const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(e => {
+    (entries) => {
+      entries.forEach((e) => {
         if (e.isIntersecting) {
           e.target.classList.add("show");
           observer.unobserve(e.target);
@@ -266,7 +290,7 @@
     },
     { threshold: 0.2 }
   );
-  document.querySelectorAll(".animate").forEach(el => observer.observe(el));
+  document.querySelectorAll(".animate").forEach((el) => observer.observe(el));
 </script>
 
 <script>
@@ -283,19 +307,21 @@
     }
   ];
 
-  let rIndex = 0;
   const reviewBox = document.getElementById("autoReview");
 
-  setInterval(() => {
-    rIndex = (rIndex + 1) % reviews.length;
-    reviewBox.style.opacity = 0;
+  if (reviewBox) {
+    let rIndex = 0;
 
-    setTimeout(() => {
-      reviewBox.innerHTML = reviews[rIndex].text;
-      reviewBox.style.opacity = 1;
-    }, 300);
+    setInterval(() => {
+      rIndex = (rIndex + 1) % reviews.length;
+      reviewBox.style.opacity = 0;
 
-  }, 5000);
+      setTimeout(() => {
+        reviewBox.innerHTML = reviews[rIndex].text;
+        reviewBox.style.opacity = 1;
+      }, 300);
+    }, 5000);
+  }
 </script>
 
 </body>
