@@ -5,63 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>חלומות מתוקים הספר הדיגיטלי</title>
 
-    <!-- Heebo font -->
     <link
       href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap"
       rel="stylesheet"
     />
 
     <style>
-      * {
-        box-sizing: border-box;
-      }
-
+      * { box-sizing: border-box; }
       body {
         margin: 0;
         font-family: "Heebo", sans-serif;
         background: #fff7fb;
         color: #333;
       }
-
-      a {
-        text-decoration: none;
-      }
-
+      a { text-decoration: none; }
       .page-wrapper {
         max-width: 960px;
         margin: 0 auto;
         padding: 24px 16px 48px;
       }
+      section { margin-bottom: 56px; }
+      h1,h2,h3 { margin: 0 0 16px; font-weight: 800; }
+      p { margin: 0 0 12px; line-height: 1.7; font-size: 17px; }
 
-      section {
-        margin-bottom: 56px;
-      }
+      .animate { opacity: 0; transform: translateY(25px); transition: .6s; }
+      .animate.show { opacity: 1; transform: translateY(0); }
 
-      h1,
-      h2,
-      h3 {
-        margin: 0 0 16px;
-        font-weight: 800;
-      }
-
-      p {
-        margin: 0 0 12px;
-        line-height: 1.7;
-        font-size: 17px;
-      }
-
-      /* Fade-in animation */
-      .animate {
-        opacity: 0;
-        transform: translateY(25px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-      }
-      .animate.show {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* HERO */
       .hero {
         text-align: center;
         padding: 32px 16px 40px;
@@ -70,41 +39,6 @@
         box-shadow: 0 20px 45px rgba(255, 133, 183, 0.3);
       }
 
-      .hero-label {
-        color: #c4598d;
-        font-size: 15px;
-        margin-bottom: 10px;
-      }
-
-      .hero-title {
-        font-size: 34px;
-        line-height: 1.25;
-        margin-bottom: 16px;
-      }
-
-      .hero-sub {
-        max-width: 550px;
-        margin: 0 auto 24px;
-        color: #555;
-      }
-
-      .price-row {
-        margin-bottom: 20px;
-      }
-
-      .price-main {
-        font-size: 32px;
-        color: #ff3f8f;
-        font-weight: 800;
-      }
-
-      .price-old {
-        font-size: 15px;
-        color: #999;
-        text-decoration: line-through;
-      }
-
-      /* CTA Button */
       .cta-btn {
         display: inline-block;
         padding: 14px 34px;
@@ -113,22 +47,16 @@
         color: #fff;
         font-size: 18px;
         font-weight: 700;
-        box-shadow: 0 10px 28px rgba(255, 79, 154, 0.5);
-        transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+        box-shadow: 0 10px 28px rgba(255,79,154,0.5);
+        transition: .15s;
       }
+      .cta-btn:hover { transform: translateY(-3px); }
 
-      .cta-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 16px 36px rgba(255, 79, 154, 0.65);
-        opacity: 0.96;
-      }
-
-      /* Cards */
       .card {
         background: #ffffff;
         border-radius: 24px;
         padding: 24px 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
       }
 
       .section-title {
@@ -139,379 +67,236 @@
 
       .v-row {
         display: flex;
-        align-items: flex-start;
         gap: 8px;
         margin-bottom: 10px;
       }
+      .v-icon { color: #17c964; font-size: 20px; }
 
-      .v-icon {
-        color: #17c964;
-        font-weight: 800;
-        font-size: 20px;
-        flex-shrink: 0;
-      }
-
-      /* Images */
-      .img-block {
-        margin: 32px 0;
-        text-align: center;
-      }
-
+      .img-block { margin: 32px 0; text-align: center; }
       .img-block img {
         width: 100%;
         max-width: 520px;
         border-radius: 24px;
-        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.09);
-      }
-
-      /* Review auto box */
-      .review-box {
-        text-align: center;
-        background: #fff;
-        padding: 28px 22px;
-        border-radius: 24px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        font-size: 17px;
-        line-height: 1.8;
-        min-height: 120px;
-        opacity: 1;
-        transition: opacity 0.4s ease;
-      }
-
-      .pill {
-        display: inline-block;
-        background: #ffe5f1;
-        color: #c24580;
-        border-radius: 999px;
-        padding: 6px 14px;
-        font-size: 14px;
-        margin-bottom: 10px;
-      }
-
-      /* FAQ */
-      .faq {
-        background: #fff;
-        border-radius: 24px;
-        padding: 22px 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-      }
-
-      .faq-item {
-        border-bottom: 1px solid #f0f0f0;
-        padding: 10px 0;
-        cursor: pointer;
-      }
-
-      .faq-item:last-child {
-        border-bottom: none;
-      }
-
-      .faq-q {
-        font-weight: 600;
-        font-size: 17px;
-        padding-left: 22px;
-        position: relative;
-      }
-
-      .faq-q::before {
-        content: "+";
-        position: absolute;
-        left: 0;
-        top: 0;
-        color: #ff4f9a;
-        font-weight: 800;
-      }
-
-      .faq-item.open .faq-a {
-        display: block;
-      }
-
-      .faq-item.open .faq-q::before {
-        content: "–";
-      }
-
-      .faq-a {
-        display: none;
-        font-size: 16px;
-        color: #555;
-        margin-top: 6px;
-      }
-
-      footer {
-        text-align: center;
-        font-size: 13px;
-        color: #888;
-        margin-top: 24px;
-      }
-
-      @media (max-width: 768px) {
-        .hero-title {
-          font-size: 30px;
-        }
+        box-shadow: 0 14px 30px rgba(0,0,0,0.09);
       }
     </style>
   </head>
 
-  <body>
-    <div class="page-wrapper">
-      <!-- HERO -->
-      <section class="hero animate">
-        <div class="hero-label">ספר דיגיטלי לפתיחה מיידית</div>
+<body>
+<div class="page-wrapper">
 
-        <h1 class="hero-title" style="font-size: 32px;">
-          חלומות מתוקים — הספר הדיגיטלי שלך לאפייה מושלמת
-        </h1>
+<!-- HERO -->
+<section class="hero animate">
+  <div class="hero-label">ספר דיגיטלי לפתיחה מיידית</div>
+  <h1 class="hero-title">חלומות מתוקים הספר הדיגיטלי שלך לאפייה מושלמת</h1>
+  <h2 style="font-size: 22px; font-weight:700; color:#444;">הסודות הקטנים שעושים את ההבדל</h2>
 
-        <h2 style="font-size: 22px; margin-bottom: 18px; font-weight: 700; color: #444;">
-          הסודות הקטנים שעושים את ההבדל הגדול באפייה
-        </h2>
+  <p class="hero-sub">
+    עשרות מתכונים מדויקים + טיפים פרקטיים — הכול בספר אחד שנפתח מיד אחרי הרכישה.
+  </p>
 
-        <p class="hero-sub">
-          עשרות מתכונים מדויקים, פשוטים ואלגנטיים, עם כל הטיפים הקטנים שיוציאו מהתנור שלך קינוחים שנראים כמו קונדיטוריה — והכול מיד אחרי הרכישה.
-        </p>
+  <div class="price-row">
+    <div class="price-main">29 ₪ בלבד</div>
+    <div class="price-old">במקום 89 ₪</div>
+  </div>
 
-        <div class="price-row">
-          <div class="price-main">29 ₪ בלבד</div>
-          <div class="price-old">במקום 89 ₪</div>
-        </div>
+  <a href="https://payments.payplus.co.il/l/494895de-7c9f-4995-aa43-74d5a69a0383" class="cta-btn">
+    אני רוצה את הספר עכשיו
+  </a>
+</section>
 
-        <a
-          href="https://payments.payplus.co.il/l/494895de-7c9f-4995-aa43-74d5a69a0383"
-          class="cta-btn"
-        >
-          אני רוצה את הספר עכשיו
-        </a>
-      </section>
+<!-- IMAGE -->
+<section class="img-block animate">
+  <img src="https://static.wixstatic.com/media/19002b_b82f4cb756ac4ca9ba635f29507e0872~mv2.jpg" />
+</section>
 
-      <!-- IMAGE -->
-      <section class="img-block animate">
-        <img
-          src="https://static.wixstatic.com/media/19002b_b82f4cb756ac4ca9ba635f29507e0872~mv2.jpg"
-          alt="עוגיות אבקה"
-        />
-      </section>
-      <!-- CONTENT -->
-      <section class="animate">
-        <div class="card">
-          <h2 class="section-title">מה מחכה לך בתוך הספר?</h2>
-
-          <div class="v-row">
-            <div class="v-icon">✔</div>
-            <p>עשרות מתכונים שמקבלים בכל פעם מחמאות ולא נשאר פירור.</p>
-          </div>
-
-          <div class="v-row">
-            <div class="v-icon">✔</div>
-            <p>הוראות קצרות וברורות בלי מילים מיותרות.</p>
-          </div>
-
-          <div class="v-row">
-            <div class="v-icon">✔</div>
-            <p>טבלת המרות מקצועית לפי כוס 240 ו־180 חד"פ.</p>
-          </div>
-
-          <div class="v-row">
-            <div class="v-icon">✔</div>
-            <p>מתאים גם למתחילים וגם למקצועיים.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- MORE INFO -->
-     <!-- UNIFIED FEATURES SECTION -->
+<!-- ⭐ UNIFIED FEATURES SECTION -->
 <section class="animate">
   <div class="card">
     <h2 class="section-title">מה מחכה לך בתוך הספר?</h2>
 
-    <div class="v-row">
-      <div class="v-icon">✔</div>
-      <p>עשרות מתכונים מדויקים, קלים ומרשימים – כאלה שתמיד מצליחים.</p>
-    </div>
+    <div class="v-row"><div class="v-icon">✔</div><p>עשרות מתכונים מדויקים, קלים ומרשימים — כאלה שתמיד מצליחים.</p></div>
+    <div class="v-row"><div class="v-icon">✔</div><p>הוראות קצרות וברורות ללא מילים מיותרות.</p></div>
+    <div class="v-row"><div class="v-icon">✔</div><p>טבלת המרות מקצועית לפי כוס 240 מ״ל ו־180 מ״ל חד"פ.</p></div>
+    <div class="v-row"><div class="v-icon">✔</div><p>מתאים למתחילים וגם למקצועיים.</p></div>
 
-    <div class="v-row">
-      <div class="v-icon">✔</div>
-      <p>הוראות קצרות וברורות בלי מילים מיותרות.</p>
-    </div>
-
-    <div class="v-row">
-      <div class="v-icon">✔</div>
-      <p>טבלת המרות מקצועית לפי כוס 240 מ״ל ו־180 מ״ל חד"פ.</p>
-    </div>
-
-    <div class="v-row">
-      <div class="v-icon">✔</div>
-      <p>מתאים גם למתחילים וגם למקצועיים.</p>
-    </div>
-
-    <hr style="border: none; height: 1px; background: #f3d6e4; margin: 22px 0" />
+    <hr style="margin:22px 0; background:#f3d6e4; height:1px; border:none;" />
 
     <h2 class="section-title" style="margin-top: 10px;">הספר שלא רק נותן מתכונים</h2>
 
+    <div class="v-row"><div class="v-icon">✔</div><p><strong>שליחת מצרכים לוואטסאפ</strong> בלחיצה אחת.</p></div>
+    <div class="v-row"><div class="v-icon">✔</div><p><strong>ממיר תבניות חכם</strong> שמחשב כמויות אוטומטית.</p></div>
+    <div class="v-row"><div class="v-icon">✔</div><p><strong>ספר דיגיטלי לכל החיים</strong> נגיש מכל מכשיר.</p></div>
+
+  </div>
+</section>
+<!-- ABOUT YOU -->
+<section class="animate">
+  <div class="card">
+    <h2 class="section-title">למה אפשר לסמוך על הספר?</h2>
+
+    <p style="text-align: center; font-size: 17px; margin-bottom: 26px">
+      <strong style="font-size: 19px">מי עומד מאחורי הספר?</strong><br />
+      אני מירון, אופה ביתי עם ניסיון של יותר מ־25 שנה, יוצר מתכונים שעברו אלפי מטבחים.  
+      אחרי מאות ניסויים ושיפורים — בחרתי רק את המתכונים המושלמים ואיחדתי אותם לספר אחד מקצועי, רגיש וקל לשימוש.
+    </p>
+
+    <hr style="border: none; height: 1px; background: #f3d6e4; margin: 22px 0" />
+
     <div class="v-row">
       <div class="v-icon">✔</div>
-      <p><strong>שליחת מצרכים לוואטסאפ בלחיצה אחת</strong><br />תוך שנייה רשימת הקניות אצלך.</p>
+      <p><strong>10,000+ עוקבים קבועים</strong> שמכינים את המתכונים שלי מדי שבוע.</p>
     </div>
 
     <div class="v-row">
       <div class="v-icon">✔</div>
-      <p><strong>ממיר תבניות חכם</strong><br />מחשב לך כמויות אוטומטית לכל גודל תבנית.</p>
+      <p><strong>מתכונים שמדורגים ראשונים בגוגל</strong> בזכות דיוק וטעם מנצח.</p>
     </div>
 
     <div class="v-row">
       <div class="v-icon">✔</div>
-      <p><strong>ספר דיגיטלי לכל החיים</strong><br />נגיש מכל מכשיר, בכל זמן.</p>
+      <p><strong>עשרות תגובות אמיתיות</strong> של אנשים שניסו וחזרו לעוד.</p>
     </div>
 
   </div>
 </section>
 
+<!-- IMAGE GALLERY -->
+<section class="img-block animate">
+  <img
+    src="https://static.wixstatic.com/media/19002b_2f09450ef9af4d4c9562d88501efb22b~mv2.jpg"
+    alt="עוגת שכבות"
+    style="margin-bottom: 20px"
+  />
+  <img
+    src="https://static.wixstatic.com/media/19002b_b714b31be17f41dabcb94f43fb4e983d~mv2.jpg"
+    alt="עוגיות שקדים"
+  />
+</section>
 
-      <!-- AUTO REVIEW BOX -->
-      <section class="animate">
-        <div class="review-box" id="autoReview">
-          ⭐⭐⭐⭐⭐<br>
-          “הכנתי כבר 4 מתכונים — יצא מדהים! הכי אהבתי את הדיוק בכל פרט.”<br>
-          <strong>– לירון</strong>
-        </div>
-      </section>
+<!-- CTA FINAL -->
+<section class="animate">
+  <div class="card" style="text-align: center;">
+    <h2 class="section-title">פחות ממחיר של קפה ומאפה</h2>
 
-      <!-- GALLERY -->
-      <section class="img-block animate">
-        <img
-          src="https://static.wixstatic.com/media/19002b_2f09450ef9af4d4c9562d88501efb22b~mv2.jpg"
-          alt="עוגת שכבות"
-          style="margin-bottom: 20px"
-        />
-        <img
-          src="https://static.wixstatic.com/media/19002b_b714b31be17f41dabcb94f43fb4e983d~mv2.jpg"
-          alt="עוגיות שקדים"
-        />
-      </section>
+    <p style="font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #ff3f8f;">
+      למה את מחכה?
+    </p>
 
-      <!-- CTA SECTION -->
-      <section class="animate">
-        <div class="card" style="text-align: center">
-          <h2 class="section-title">פחות ממחיר של קפה ומאפה</h2>
+    <p style="font-size: 18px; margin-bottom: 12px; color: #444;">
+      ספר דיגיטלי מלא במתכונים מדויקים וטיפים במחיר של קפה אחד.
+    </p>
 
-          <p style="font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #ff3f8f;">
-            למה את מחכה?
-          </p>
+    <p style="font-size: 18px; font-weight: 600; margin-bottom: 22px; color: #333;">
+      זו ההזדמנות שלך להתחיל לאפות ברמה גבוהה באמת!
+    </p>
 
-          <p style="font-size: 18px; font-weight: 500; margin-bottom: 12px; color: #444;">
-            ספר דיגיטלי מלא במתכונים מדויקים וטיפים במחיר של קפה אחד.
-          </p>
-
-          <p style="font-size: 18px; font-weight: 600; margin-bottom: 22px; color: #333;">
-            זו ההזדמנות שלך להתחיל לאפות ברמה גבוהה באמת!
-          </p>
-
-          <div class="price-row">
-            <div class="price-main">29 ₪ בלבד</div>
-            <div class="price-old">במקום 89 ₪</div>
-          </div>
-
-          <a
-            href="https://payments.payplus.co.il/l/494895de-7c9f-4995-aa43-74d5a69a0383"
-            class="cta-btn"
-          >
-            אני מצטרפת לספר עכשיו
-          </a>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section class="animate">
-        <div class="faq">
-          <h2 class="section-title">שאלות נפוצות</h2>
-
-          <div class="faq-item">
-            <div class="faq-q">איך מקבלים את הספר?</div>
-            <div class="faq-a">
-              מיד לאחר התשלום תקבלו קישור הורדה ומייל עם גישה לספר.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-q">האם זה מתאים למי שלא אפתה אף פעם?</div>
-            <div class="faq-a">
-              כן, כל ההוראות קצרות וברורות. הספר מתאים גם למתחילים.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-q">זה ספר מודפס?</div>
-            <div class="faq-a">
-              זה ספר דיגיטלי מעוצב — מתאים לנייד, טאבלט ומחשב. אפשר גם להדפיס.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-q">איך יוצרים קשר?</div>
-            <div class="faq-a">
-              לכל שאלה או התייעצות —  
-              <strong>mironbr@gmail.com</strong>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer>חלומות מתוקים – כל הזכויות שמורות</footer>
+    <div class="price-row">
+      <div class="price-main">29 ₪ בלבד</div>
+      <div class="price-old">במקום 89 ₪</div>
     </div>
 
-    <!-- SCRIPTS -->
-    <script>
-      // FAQ open/close
-      document.querySelectorAll(".faq-item").forEach((item) => {
-        item.addEventListener("click", () => {
-          item.classList.toggle("open");
-        });
-      });
+    <a
+      href="https://payments.payplus.co.il/l/494895de-7c9f-4995-aa43-74d5a69a0383"
+      class="cta-btn"
+    >
+      אני מצטרפת לספר עכשיו
+    </a>
+  </div>
+</section>
 
-      // Fade-in on scroll
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              e.target.classList.add("show");
-              observer.unobserve(e.target);
-            }
-          });
-        },
-        { threshold: 0.2 }
-      );
-      document.querySelectorAll(".animate").forEach((el) => observer.observe(el));
-    </script>
+<!-- FAQ -->
+<section class="animate">
+  <div class="faq">
+    <h2 class="section-title">שאלות נפוצות</h2>
 
-    <!-- Auto Reviews Rotator -->
-    <script>
-      const reviews = [
-        {
-          text: "⭐⭐⭐⭐⭐<br>“הכנתי כבר 4 מתכונים יצא מדהים! הכי אהבתי את הדיוק בכל פרט.”<br><strong>שרה.מ</strong>"
-        },
-        {
-          text: "⭐⭐⭐⭐⭐<br>“ספר מושלם! סוף סוף מתכונים שלא צריך לנחש בהם כלום.”<br><strong>יעל.ב</strong>"
-        },
-        {
-          text: "⭐⭐⭐⭐⭐<br>“המחיר מצחיק ביחס למה שמקבלים. כבר קניתי גם לחברה!”<br><strong>הדס.ל</strong>"
+    <div class="faq-item">
+      <div class="faq-q">איך מקבלים את הספר?</div>
+      <div class="faq-a">
+        מיד לאחר התשלום תקבלו קישור הורדה ומייל עם גישה לספר.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">האם זה מתאים למי שלא אפתה אף פעם?</div>
+      <div class="faq-a">
+        כן! כל ההוראות קצרות וברורות. מתאים גם למתחילים.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">זה ספר מודפס?</div>
+      <div class="faq-a">
+        זה ספר דיגיטלי מעוצב שמתאים לנייד, טאבלט ומחשב — וניתן להדפסה.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">איך יוצרים קשר?</div>
+      <div class="faq-a">
+        לכל שאלה מוזמנים לכתוב:  
+        <strong>mironbr@gmail.com</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="text-align: center; margin-top: 40px; color: #888;">
+  חלומות מתוקים – כל הזכויות שמורות
+</footer>
+
+</div> <!-- end wrapper -->
+
+<!-- SCRIPTS -->
+<script>
+  // FAQ open/close
+  document.querySelectorAll(".faq-item").forEach((item) => {
+    item.addEventListener("click", () => item.classList.toggle("open"));
+  });
+
+  // Fade-in animation
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add("show");
+          observer.unobserve(e.target);
         }
-      ];
+      });
+    },
+    { threshold: 0.2 }
+  );
+  document.querySelectorAll(".animate").forEach(el => observer.observe(el));
+</script>
 
-      let rIndex = 0;
-      const reviewBox = document.getElementById("autoReview");
+<script>
+  // ⭐ Auto-rotating Reviews
+  const reviews = [
+    {
+      text: "⭐⭐⭐⭐⭐<br>“הכנתי כבר 4 מתכונים — יצא מדהים! הכי אהבתי את הדיוק בכל פרט.”<br><strong>שרה.מ</strong>"
+    },
+    {
+      text: "⭐⭐⭐⭐⭐<br>“ספר מושלם! סוף סוף מתכונים שלא צריך לנחש בהם כלום.”<br><strong>יעל.ב</strong>"
+    },
+    {
+      text: "⭐⭐⭐⭐⭐<br>“המחיר מצחיק ביחס למה שמקבלים. כבר קניתי גם לחברה!”<br><strong>הדס.ל</strong>"
+    }
+  ];
 
-      setInterval(() => {
-        rIndex = (rIndex + 1) % reviews.length;
-        reviewBox.style.opacity = 0;
+  let rIndex = 0;
+  const reviewBox = document.getElementById("autoReview");
 
-        setTimeout(() => {
-          reviewBox.innerHTML = reviews[rIndex].text;
-          reviewBox.style.opacity = 1;
-        }, 300);
+  setInterval(() => {
+    rIndex = (rIndex + 1) % reviews.length;
+    reviewBox.style.opacity = 0;
 
-      }, 5000);
-    </script>
+    setTimeout(() => {
+      reviewBox.innerHTML = reviews[rIndex].text;
+      reviewBox.style.opacity = 1;
+    }, 300);
 
-  </body>
+  }, 5000);
+</script>
+
+</body>
 </html>
-
-
