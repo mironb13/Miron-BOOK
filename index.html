@@ -390,21 +390,35 @@
       </section>
 
       <!-- המלצות -->
-      <section class="animate">
-        <h2 class="section-title">מה אומרים על המתכונים שלי?</h2>
+     <script>
+<h2 class="section-title">מה אומרים על המתכונים שלי?</h2>
+  const reviews = [
+    {
+      text: "⭐⭐⭐⭐⭐<br>“הכנתי כבר 4 מתכונים יצא מדהים! הכי אהבתי את הדיוק בכל פרט.”<br><strong>שרה.מ</strong>"
+    },
+    {
+      text: "⭐⭐⭐⭐⭐<br>“ספר מושלם! סוף סוף מתכונים שלא צריך לנחש בהם כלום.”<br><strong>יעל.ב</strong>"
+    },
+    {
+      text: "⭐⭐⭐⭐⭐<br>“המחיר מצחיק ביחס למה שמקבלים. כבר קניתי גם לחברה!”<br><strong>הדס.ל</strong>"
+    }
+  ];
 
-        <div class="card">
-          <p style="font-weight:600;margin-bottom:12px;">
-            ⭐⭐⭐⭐⭐ "כל מתכון יוצא מושלם. סוף סוף מרגישה בטוחה במטבח!"
-          </p>
-          <p>
-            ⭐⭐⭐⭐⭐ "עשיתי כבר 6 מתכונים ואת כולם חוסלו. הספר הזה חובה!"
-          </p>
-          <p style="margin-bottom:0;">
-            ⭐⭐⭐⭐⭐ "זה המתכון היחיד שהצלחתי ממנו פאי כמו שצריך."
-          </p>
-        </div>
-      </section>
+  let rIndex = 0;
+  const reviewBox = document.getElementById("autoReview");
+
+  setInterval(() => {
+    rIndex = (rIndex + 1) % reviews.length;
+    reviewBox.style.opacity = 0;
+
+    setTimeout(() => {
+      reviewBox.innerHTML = reviews[rIndex].text;
+      reviewBox.style.opacity = 1;
+    }, 300);
+
+  }, 5000);
+</script>
+
 
       <!-- שאלות ותשובות -->
       <section class="animate">
@@ -484,3 +498,4 @@
     </script>
   </body>
 </html>
+
