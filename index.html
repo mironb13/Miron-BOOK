@@ -450,27 +450,33 @@
 
   </div
 
-</section>
+    <script>
+      const reviews = [
+        {
+          text: "⭐⭐⭐⭐⭐<br>“הכנתי כבר 4 מתכונים יצא מדהים! הכי אהבתי את הדיוק בכל פרט.”<br><strong>שרה.מ</strong>"
+        },
+        {
+          text: "⭐⭐⭐⭐⭐<br>“ספר מושלם! סוף סוף מתכונים שלא צריך לנחש בהם כלום.”<br><strong>יעל.ב</strong>"
+        },
+        {
+          text: "⭐⭐⭐⭐⭐<br>“המחיר מצחיק ביחס למה שמקבלים. כבר קניתי גם לחברה!”<br><strong>הדס.ל</strong>"
+        }
+      ];
 
-      <!-- AUTO REVIEWS -->
-<section class="animate">
-  <div class="card" style="text-align:center; padding:28px">
-    <h2 class="section-title">מה אנשים אומרים?</h2>
+      let rIndex = 0;
+      const reviewBox = document.getElementById("autoReview");
 
-    <div id="autoReview"
-      style="
-        font-size:18px; 
-        line-height:1.6; 
-        transition:opacity 0.3s;
-        opacity:1;
-        min-height:120px;
-      ">
-      ⭐⭐⭐⭐⭐<br>
-      “הכנתי כבר 4 מתכונים יצא מדהים! הכי אהבתי את הדיוק בכל פרט.”<br>
-      <strong>שרה.מ</strong>
-    </div>
-  </div>
-</section>
+      setInterval(() => {
+        rIndex = (rIndex + 1) % reviews.length;
+        reviewBox.style.opacity = 0;
+
+        setTimeout(() => {
+          reviewBox.innerHTML = reviews[rIndex].text;
+          reviewBox.style.opacity = 1;
+        }, 300);
+
+      }, 5000);
+    </script>
 
 
       <!-- GALLERY -->
@@ -613,6 +619,7 @@
 
   </body>
 </html>
+
 
 
 
