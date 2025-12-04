@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
   <head>
-    <!-- Google Tag Manager -->
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-TRLCC56N');
-    </script>
-    <!-- End Google Tag Manager -->
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>חלומות מתוקים הספר הדיגיטלי</title>
@@ -196,18 +186,90 @@
         font-size: 14px;
         margin-bottom: 10px;
       }
+
+      /* FAQ */
+      .faq {
+        background: #fff;
+        border-radius: 24px;
+        padding: 22px 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      }
+
+      .faq-item {
+        border-bottom: 1px solid #f0f0f0;
+        padding: 10px 0;
+        cursor: pointer;
+      }
+
+      .faq-item:last-child {
+        border-bottom: none;
+      }
+
+      .faq-q {
+        font-weight: 600;
+        font-size: 17px;
+        padding-left: 22px;
+        position: relative;
+      }
+
+      .faq-q::before {
+        content: "+";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: #ff4f9a;
+        font-weight: 800;
+      }
+
+      .faq-item.open .faq-a {
+        display: block;
+      }
+
+      .faq-item.open .faq-q::before {
+        content: "–";
+      }
+
+      .faq-a {
+        display: none;
+        font-size: 16px;
+        color: #555;
+        margin-top: 6px;
+      }
+
+      footer {
+        text-align: center;
+        font-size: 13px;
+        color: #888;
+        margin-top: 24px;
+      }
+
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 30px;
+        }
+        .two-cols {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .page-wrapper {
+          padding: 16px 12px 32px;
+        }
+        .cta-btn {
+          width: 100%;
+          font-size: 17px;
+        }
+      }
     </style>
   </head>
 
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRLCC56N"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
     <div class="page-wrapper">
 
       <!-- HERO -->
+
+<!-- HERO -->
 <section class="hero animate">
 
   <!-- משפט הזדהות קצר -->
@@ -266,6 +328,8 @@
     אני רוצה את הספר עכשיו
   </a>
 
+</section>
+       
 </section>
 
       <!-- IMAGE -->
@@ -338,7 +402,6 @@
   </div>
 </div>
 
-
           <div class="img-block" style="margin: 0">
             <img
               src="https://static.wixstatic.com/media/19002b_6c8ac395c5d6410184261c43dde96ffa~mv2.jpg"
@@ -381,12 +444,14 @@
     <div class="v-row">
       <div class="v-icon">✔</div>
       <p><strong>עשרות תגובות אמיתיות</strong> של אנשים שניסו וחזרו לעוד.</p>
+
     </div>
 
-  </div>
-</section>
+  </div
 
-<!-- AUTO REVIEWS -->
+    </section>
+
+     <!-- AUTO REVIEWS -->
 <section class="animate" style="margin-top: 40px;">
   <div class="card" style="text-align:center; padding:28px">
     <h2 class="section-title">מה אנשים אומרים?</h2>
@@ -547,6 +612,4 @@
 </script>
 
 </body>
-</html>
-
-
+</html
